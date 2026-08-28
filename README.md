@@ -54,8 +54,8 @@ I connected those SQL queries to Metabase to pull everything together into one d
 
 ## Dashboard
 
-![Retail Store Dashboard](dashboard_overview.png)
-![Revenue by Day of Week](revenue_by_day.png)
+<img width="1366" height="1644" alt="image" src="https://github.com/user-attachments/assets/f1ef753c-0701-46ad-a44f-565402fbc9ed" />
+
 
 ## Repository Structure
 
@@ -70,30 +70,5 @@ retail-sales-data-pipeline/
 └── README.md
 ```
 
-## Want to run it yourself?
 
-1. Clone the repo and install what you need:
-   ```
-   pip install -r requirements.txt
-   ```
-2. Set up a MySQL database and point `sql_python.py` at it (see the note below on credentials).
-3. Update the `file_path` in `sql_python.py` to wherever your CSV lives.
-4. Run it:
-   ```
-   python sql_python.py
-   ```
-5. Run the queries in `SQL_Retail_Store.sql` against the `online_retail` table.
-6. Connect Metabase to your MySQL database and rebuild the dashboard from there.
 
-> **Quick note on credentials:** don't commit real database credentials in the connection string. I use environment variables instead:
-> ```python
-> import os
-> engine = create_engine(os.environ["DATABASE_URL"])
-> ```
-
-## What I'd add next
-
-- Automate the pipeline with something like Airflow so it runs on a schedule instead of manually
-- Add basic data validation tests (`pytest` or `Great Expectations`)
-- Build out cohort/retention analysis over time
-- Add a customer lifetime value (CLV) calculation
